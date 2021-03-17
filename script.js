@@ -35,3 +35,39 @@ function loop() {
     window.requestAnimationFrame(loop);
 }
 window.requestAnimationFrame(loop);
+
+const computerBall = document.querySelector (".ball");
+
+let computerBallXPosition = 0;
+let computerBallXVelocity = 2;
+let computerBallYPosition = 0;
+let computerBallYVelocity = 1;
+
+function ballPositionYDirection(){
+    if (computerBallYPosition + computerBallYVelocity >= GAME_AREA_HEIGHT){
+          computerBallYVelocity = computerBallYVelocity * -1;
+    }
+    computerBallYPosition = computerBallYPosition + computerBallYVelocity;
+    computerBall.style.top = `${computerBallYPosition}px`;
+    
+}
+
+function loop2 (){
+    ballPositionYDirection();
+    window.webkitRequestAnimationFrame (loop2);
+}
+window.webkitRequestAnimationFrame (loop2);
+
+function ballPositionXDirection (){
+    if (computerBallXPosition + computerBallXVelocity >= GAME_AREA_WIDTH){
+        computerBallXVelocity = computerBallXVelocity *-1;
+    }
+    computerBallXPosition = computerBallXPosition + computerBallXVelocity ;
+    computerBall.style.left = `${computerBallXPosition}px`;
+}
+
+function loop3 (){
+    ballPositionXDirection ();
+    window.webkitRequestAnimationFrame (loop3);
+}
+window.webkitRequestAnimationFrame (loop3);
